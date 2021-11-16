@@ -1,0 +1,73 @@
+ScreenManager:
+    HomeScreen:
+
+<HomeScreen>:
+    FloatLayout:
+        MDToolbar:
+            pos_hint: {'top': 1}
+            specific_text_color: 0,0,0,1
+            title: '  BMI Calculator  '
+            left_action_items: [['gender-male', lambda x: root.setGender('MALE')]]
+            right_action_items:[['gender-female', lambda x: root.setGender('FEMALE')]]
+        MDLabel:
+            pos_hint: {'top': .9}
+            size_hint: 1,.1
+            halign: 'center'
+            text: 'Enter your height:'
+            font_style: 'Subtitle1'
+        MDSlider:
+            id: heightslider
+            pos_hint: {'top': .8}
+            size_hint: 1,.1
+            halign: 'center' 
+            hint: False
+            min: 54
+            max: 84
+            value: 54+ (84-54)/2
+            on_touch_move: root.ids.heightlabel.text = str(int(self.value)) + ' inches'
+            on_touch_up: root.heightval = int(self.value)
+        MDLabel:
+            id: heightlabel
+            size_hint: 1, .1
+            pos_hint: {'top':.7}
+            halign: 'center'
+            font_style: 'Subtitle2'
+            text: str(int(root.ids.heightslider.value)) + ' inches'
+        MDLabel:
+            pos_hint: {'top': .6}
+            size_hint: 1,.1
+            halign: 'center'
+            text: 'Enter your weight:'
+            font_style: 'Subtitle1'
+        MDSlider:
+            id: weightslider
+            pos_hint: {'top': .5}
+            size_hint: 1,.1
+            halign: 'center' 
+            hint: False
+            min: 90
+            max: 320
+            value: 90 + (320-90)/2
+            on_touch_move: root.ids.weightlabel.text = str(int(self.value)) + ' pounds'
+            on_touch_up: root.weightval = int(self.value)
+        MDLabel:
+            id: weightlabel
+            size_hint: 1, .1
+            pos_hint: {'top':.4}
+            halign: 'center'
+            font_style: 'Subtitle2'
+            text: str(int(root.ids.weightslider.value)) + ' pounds'
+        MDLabel:
+            size_hint: 1, .1
+            pos_hint: {'top':.3}
+            halign: 'center'
+            text: '%.1f BMI' % root.bmival if root.bmival else ''
+            font_style: 'H3'
+        MDLabel:
+            size_hint: 1, .1
+            pos_hint: {'top':.2}
+            halign: 'center'
+            text: root.bmiclass if root.bmival != 0 else ''
+            font_style: 'H3'
+
+

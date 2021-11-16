@@ -1,0 +1,78 @@
+ScreenManager:
+    HomeScreen
+
+<HomeScreen>:
+    FloatLayout:
+        MDToolbar:
+            title: 'Weather Search'
+            pos_hint: {'top': 1}
+        BoxLayout:
+            orientation: 'vertical'
+            FloatLayout:
+                CitySearchField:
+                    id: current_city
+                    hint_text: 'City name'
+                    mode: 'rectangle'
+                    pos_hint: {'top':.9 }
+                    size_hint: 1,.05
+                    multiline: False
+                MDRectangleFlatIconButton:
+                    text: 'Search'
+                    icon: 'magnify'
+                    pos_hint: {'top':.85 }
+                    size_hint: 1,.05
+                    disabled: root.ids.current_city.current_city_link == ''
+                    on_press: root.get_city_data(root.ids.current_city.current_city_link)
+                GridLayout:
+                    cols: 1
+                    pos_hint: {'top':.8}
+                    size_hint: 1,.3 
+                    MDLabel:
+                        text: root.city_name
+                        halign: 'center'
+                        font_style: 'H3'
+                    MDLabel:
+                        text: root.datetime
+                        halign: 'center'
+                        font_style: 'Subtitle1'
+                GridLayout:
+                    cols:2
+                    pos_hint: {'top':.5}
+                    size_hint: 1,.3
+                    MDLabel:
+                        text: root.temperature
+                        size_hint: .5,.1
+                        font_style: 'H3'
+                        theme_text_color: "Custom"
+                        text_color: 0, 0, 1, 1
+                    MDLabel:
+                        text: root.condition
+                        size_hint: .5,.1
+                        font_style: 'H3'
+                        theme_text_color: "Custom"
+                        text_color: 0, 0, 1, 1
+                GridLayout:
+                    cols: 3
+                    pos_hint: {'top':.2}
+                    size_hint: 1,.3 
+                    MDLabel:
+                        text: '[u]{}[/u]'.format(root.humidity)
+                        markup: True
+                        size_hint: .33,.1
+                        font_style: 'Subtitle1'
+                        theme_text_color: "Custom"
+                        text_color: 0, 1, 0, 1
+                    MDLabel:
+                        text: '[u]{}[/u]'.format(root.pressure)
+                        markup: True
+                        size_hint: .33,.1
+                        font_style: 'Subtitle1'
+                        theme_text_color: "Custom"
+                        text_color: 0, 1, 0, 1
+                    MDLabel:
+                        text: '[u]{}[/u]'.format(root.visibility)
+                        markup: True
+                        size_hint: .33,.1
+                        font_style: 'Subtitle1'
+                        theme_text_color: "Custom"
+                        text_color: 0, 1, 0, 1
