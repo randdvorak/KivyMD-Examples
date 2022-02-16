@@ -25,54 +25,83 @@ ScreenManager:
                     on_press: root.get_city_data(root.ids.current_city.current_city_link)
                 GridLayout:
                     cols: 1
-                    pos_hint: {'top':.8}
-                    size_hint: 1,.3 
+                    pos_hint: {'top':.75}
+                    size_hint: 1,.2
                     MDLabel:
                         text: root.city_name
                         halign: 'center'
                         font_style: 'H3'
                     MDLabel:
+                        text: root.country_name
+                        halign: 'center'
+                        font_style: 'Subtitle2'
+                    MDLabel:
                         text: root.datetime
                         halign: 'center'
                         font_style: 'Subtitle1'
                 GridLayout:
-                    cols:2
-                    pos_hint: {'top':.5}
-                    size_hint: 1,.3
+                    cols: 1
+                    pos_hint: {'top':.6}
+                    size_hint: 1,.4
                     MDLabel:
                         text: root.temperature
-                        size_hint: .5,.1
-                        font_style: 'H3'
+                        font_size: dp(72)
+                        halign: 'center'
                         theme_text_color: "Custom"
                         text_color: 0, 0, 1, 1
                     MDLabel:
                         text: root.condition
-                        size_hint: .5,.1
-                        font_style: 'H3'
+                        font_size: dp(24)
+                        halign: 'center'
                         theme_text_color: "Custom"
                         text_color: 0, 0, 1, 1
                 GridLayout:
                     cols: 3
-                    pos_hint: {'top':.2}
-                    size_hint: 1,.3 
+                    rows: 2
+                    pos_hint: {'top': .3}
+                    size_hint: 1, .3
+                    MDLabel:
+                        text: 'Humidity'
+                        font_size: dp(16)
+                        size_hint: .33, .2
+                        halign: 'center'
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                    MDLabel:
+                        text: 'Pressure'
+                        font_size: dp(16)
+                        size_hint: .33, .2
+                        halign: 'center'
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                    MDLabel:
+                        text: 'Visibility'
+                        font_size: dp(16)
+                        size_hint: .33, .2
+                        halign: 'center'
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
                     MDLabel:
                         text: '[u]{}[/u]'.format(root.humidity)
                         markup: True
-                        size_hint: .33,.1
                         font_style: 'Subtitle1'
+                        size_hint: .33, .2
+                        halign: 'center'
                         theme_text_color: "Custom"
                         text_color: 0, 1, 0, 1
                     MDLabel:
                         text: '[u]{}[/u]'.format(root.pressure)
                         markup: True
-                        size_hint: .33,.1
+                        size_hint: .33, .2
+                        halign: 'center'
                         font_style: 'Subtitle1'
                         theme_text_color: "Custom"
                         text_color: 0, 1, 0, 1
                     MDLabel:
                         text: '[u]{}[/u]'.format(root.visibility)
                         markup: True
-                        size_hint: .33,.1
+                        halign: 'center'
+                        size_hint: .33, .2
                         font_style: 'Subtitle1'
                         theme_text_color: "Custom"
                         text_color: 0, 1, 0, 1

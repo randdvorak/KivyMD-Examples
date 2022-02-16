@@ -14,6 +14,7 @@ import functools
 class HomeScreen(MDScreen):
 
     city_name = StringProperty()
+    country_name = StringProperty()
     temperature = StringProperty()
     condition = StringProperty()
     datetime = StringProperty()
@@ -28,7 +29,8 @@ class HomeScreen(MDScreen):
         link_data = city_link.split('/')
         city = link_data[-1].capitalize()
         country = link_data[-2].capitalize()
-        self.city_name = city + ', ' + country
+        self.city_name = city
+        self.country_name = country
         data = requests.get(city_link)
         soup = BeautifulSoup(data.text, 'html.parser')
         qlook = soup.find(id='qlook')
