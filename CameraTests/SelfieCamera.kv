@@ -1,0 +1,13 @@
+SelfieCamera:
+
+<SelfieCamera>:
+    orientation: 'vertical'
+    Camera:
+        id: camera
+        resolution: (800, 800)
+        pos_hint: {'centerx': .5, 'center_y': .5}
+    MDRectangleFlatButton:
+        text: "Take photo"
+        pos_hint: {'center_x': .5}
+        on_press: root.take_photo()
+    

@@ -1,0 +1,63 @@
+Interface:
+
+<Interface>:
+    MDToolbar:
+        title: 'Text To Speech Converter'
+        anchor_title: 'center'
+        pos_hint: {'top': 1}
+        md_bg_color: app.theme_cls.primary_color
+    MDTextField:
+        id: input_text
+        hint_text: 'Input text here...'
+        mode: 'fill'
+        pos_hint:{'center_x': .5, 'center_y': .75}
+        size_hint: .9, .2
+    MDFloatingActionButton:
+        icon: 'export'
+        md_bg_color: app.theme_cls.primary_color
+        pos_hint: {'right': .95, 'top': .1}
+        on_press: root.export_to_file()
+    MDBoxLayout:
+        pos_hint: {'center_x': .5, 'center_y': .6}
+        adaptive_size: True
+        MDBoxLayout:
+            adaptive_size: True
+            MDCheckbox:
+                id: male
+                group: 'selection'
+                size_hint: None, None
+                size: dp(24), dp(24)
+                active: True
+                selected_color: app.theme_cls.primary_color
+            MDLabel:
+                text: 'Male'
+                size_hint: None, None
+                size: dp(100), dp(24)
+            MDCheckbox:
+                id: female
+                group: 'selection'
+                size_hint: None, None
+                size: dp(24), dp(24)
+                active: False
+                selected_color: app.theme_cls.primary_color
+            MDLabel:
+                text: 'Female'
+                size_hint: None, None
+                size: dp(100), dp(24) 
+    PlayButton:
+        id: play_button
+        icon: 'Play.png'
+        size_hint: None, None
+        size: dp(200), dp(200)
+        pos_hint: {'center_x': .5, 'center_y': .3}  
+        on_press: root.changeState()
+
+<Filechooser>:
+    orientation: 'vertical'
+    size_hint_y: None
+    height: dp(40)
+    MDTextField:
+        hint_text: 'Filename here'
+        mode: 'rectangle'
+        helper_text: 'Do not enter file extension'
+        helper_text_mode: 'on_focus'
